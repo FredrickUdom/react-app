@@ -6,6 +6,7 @@ function App() {
     <div className="App">
       <div className="content">
         <h1>{greet}</h1>
+        <p>{Math.random() * 10}</p>
       </div>
     </div>
   );
