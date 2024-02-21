@@ -1,6 +1,8 @@
 const Home = () => {
     return ( 
-        dic
+        <div className="Home">
+            <h2>Home Page</h2>
+        </div>
      );
 }
  
