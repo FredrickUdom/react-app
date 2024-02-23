@@ -10,17 +10,19 @@ const Home = () => {
         console.log(`Hello ${name}`)
     }
     // let name =
-    const [name, setName] = useState('are you wise?');
+    const [name, setName] = useState('freddy');
+    const [age, setAge] = useState(10)
     const wiseness =()=>{
-        setName('yes i am wise and even wiser')
+        setName('dickson')
+        setAge(15)
     }
     return ( 
         <div className="Home">
             <h2>Home Page</h2>
             <button onClick={handleClick}>Click me</button>
             <button onClick={()=> greet('freddy')}>click to greet</button>
-            <p>{name}</p>
-            <button onClick={wiseness}>on wise ones</button>
+            <p>{name} is {age} years old</p>
+            <button onClick={wiseness}>click to change</button>
         </div>
      );
 }
