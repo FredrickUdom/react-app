@@ -1,7 +1,8 @@
 import { useState } from "react";
 
 const Home = () => {
-    const [] = useState([
+    // eslint-disable-next-line
+    const [blogs, setBlogs] = useState([
         {
             title: 'My new website',
             body: 'this is my website',
@@ -21,7 +22,14 @@ const Home = () => {
         },
     ]);
     return ( 
-        <h1>welcome to homepage</h1>
+        <div className="home">
+            {blogs.map((blog)=>(
+                <div className="blog-preview" key={blog.id}>
+                    <h2>{blog.title}</h2>
+                    <p>written by {blog.author}</p>
+                </div>
+            ))}
+        </div>
      );
 }
  
