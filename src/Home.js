@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Bloglist from "./Bloglist";
 
 const Home = () => {
     // eslint-disable-next-line
@@ -6,31 +7,27 @@ const Home = () => {
         {
             title: 'My new website',
             body: 'this is my website',
+            author: 'dickson',
             id:1
         },
 
         {
             title: 'Welcome party',
             body: 'this is a welcome party',
+            author: 'mark',
             id:2
         },
 
         {
             title: 'Web dev top tool',
             body: 'this is for your web dev tools',
+            author: 'james',
             id:3
         },
     ]);
     return ( 
         <div className="home">
-            {blogs.map((blog)=>(
-                <div className="blog-preview" key={blog.id}>
-                    <h2><span>This the tittle of this blog:</span> {blog.title}</h2>
-                    <br />
-                    <h2><span>This the body of this blog:</span> {blog.body}</h2>
-                    <p>written by {blog.author}</p>
-                </div>
-            ))}
+           <Bloglist blogs={blogs}/>
         </div>
      );
 }
