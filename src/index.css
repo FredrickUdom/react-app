@@ -46,3 +46,6 @@
   margin-bottom: 8px;
   color: #f1356d;
 }
+button{
+  cursor: pointer !important;
+}

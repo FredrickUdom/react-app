@@ -25,9 +25,14 @@ const Home = () => {
             id:3
         },
     ]);
+    //  deleting blog 
+    const handleDelete = (id)=>{
+        const deleteBlog = blogs.filter(blog => blog.id !== id)
+        setBlogs(deleteBlog)
+    }
     return ( 
         <div className="home">
-           <Bloglist blogging={blogs} title='All Blogs'/>
+           <Bloglist blogging={blogs} title='All Blogs' handleDelete={handleDelete}/>
 
            {/* filtering blog by name */}
 
