@@ -5,21 +5,25 @@ const Home = () => {
     // eslint-disable-next-line
     const [blogs, setBlogs] = useState(null);
     //  deleting blog 
-    const handleDelete = (id)=>{
-        const deleteBlog = blogs.filter(blog => blog.id !== id)
-        setBlogs(deleteBlog)
-    }
+   
     // fetch from the fake db.json file
     useEffect(()=>{
         fetch('http://localhost:8000/blogs')
+        .then((res)=>{
+          return  res.json()
+        })
+        .then((data)=>{
+            // console.log(data)
+            setBlogs(data)
+        })
     })
     return ( 
         <div className="home">
-           <Bloglist blogging={blogs} title='All Blogs' handleDelete={handleDelete}/>
+           {blogs && <Bloglist blogging={blogs} title='All Blogs'/>}
 
            {/* filtering blog by name */}
 
-           <Bloglist blogging={blogs.filter((blog)=>blog.author === 'dickson')} title="this is dickson's blog"/>
+           {/* <Bloglist blogging={blogs.filter((blog)=>blog.author === 'dickson')} title="this is dickson's blog"/> */}
         </div>
      );
 }
