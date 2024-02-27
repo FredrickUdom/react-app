@@ -18,6 +18,10 @@ const Home = () => {
             setBlogs(data)
             setIsPending(false)
         })
+        .catch(err =>{
+            const errMes = 'I can not load datas'
+            console.log(err.message + ` ${errMes}`);
+        })
       }, 1000)
     })
     return ( 
