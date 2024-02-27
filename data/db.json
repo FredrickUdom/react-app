@@ -1,0 +1,24 @@
+{
+    "blogs": [
+        {
+            "title": "Web dev top tool",
+            "body": "this is for your web dev tools",
+            "author": "james",
+            "id":3
+        }, 
+
+        {
+            "title": "Web dev top tool",
+            "body": "this is for your web dev tools",
+            "author": "james",
+            "id":2
+        },
+
+        {
+            "title": "Web dev top tool",
+            "body": "this is for your web dev tools",
+            "author": "james",
+            "id":1
+        }
+    ]
+}
