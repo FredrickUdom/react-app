@@ -5,7 +5,9 @@ const Home = () => {
     // eslint-disable-next-line
     const [blogs, setBlogs] = useState(null);
     
-    const [isPending, setIsPending]= useState(true)
+    const [isPending, setIsPending]= useState(true);
+
+    const [error, setError] = useState(null);
     // fetch from the fake db.json file
     useEffect(()=>{
       setTimeout(()=>{
@@ -20,15 +22,18 @@ const Home = () => {
             // console.log(data)
             setBlogs(data)
             setIsPending(false)
+            setError(null)
         })
         .catch(err =>{
             const errMes = 'I can not load datas'
-            console.log(err.message + ` ${errMes}`);
+            setError( `${errMes}`)
+            setIsPending(false)
         })
       }, 1000)
     })
     return ( 
         <div className="home">
+          {error && <div>{error}</div>}
              {isPending && <div>Loading...</div>}
            {blogs && <Bloglist blogging={blogs} title='All Blogs'/>}
 
