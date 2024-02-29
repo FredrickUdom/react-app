@@ -1,17 +1,23 @@
 import Navbar from './Navbar';
 import Home from './Home';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 function App() {
   // const greet = 'Welcome to your first coding in ReactJs framework'
   return (
-    <div className="App">
-      <Navbar/>
-      <div className="content">
-        {/* <h1>{greet}</h1> */}
-        {/* <p>{Math.random() * 10}</p> */}
-        <Home />
+    <Router>
+        <div className="App">
+          <Navbar/>
+          <div className="content">
+           <Switch>
+            <Route path="/">
+              <Home />
+            </Route>
 
-      </div>
-    </div>
+            </Switch>
+
+          </div>
+        </div>
+    </Router>
   );
 }
 
