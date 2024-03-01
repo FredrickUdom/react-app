@@ -11,8 +11,9 @@ const useFetch=(url)=>{
 
     // fetch from the fake db.json file
     useEffect(()=>{
+      const abortCont = new AbortController();
         setTimeout(()=>{
-          fetch(url)
+          fetch(url, {signal: abortCont.signal})
           .then((res)=>{
               if(!res.ok){
                   throw Error('Could not fetch data for that resource')
@@ -26,11 +27,15 @@ const useFetch=(url)=>{
               setError(null)
           })
           .catch(err =>{
+            if(err.name === "AbortError"){
+              console.log('fetch aborted')
+            }
               const errMes = 'I can not load datas'
               setError( `${errMes}`)
               setIsPending(false)
           })
         }, 1000);
+        return ()=> abortCont.abort();
       }, [url]);
 
       return{
