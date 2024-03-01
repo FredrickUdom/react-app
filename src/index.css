@@ -49,3 +49,6 @@
 button{
   cursor: pointer !important;
 }
+.blog-preview a{
+  text-decoration: none;
+}
