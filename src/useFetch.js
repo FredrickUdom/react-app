@@ -20,19 +20,20 @@ const useFetch=(url)=>{
               }
             return  res.json()
           })
-          .then((data)=>{
-              console.log(data)
-              setDatas(data)
+          .then((datas)=>{
+              console.log(datas)
+              setDatas(datas)
               setIsPending(false)
               setError(null)
           })
           .catch(err =>{
             if(err.name === "AbortError"){
               console.log('fetch aborted')
-            }
+            }else{
               const errMes = 'I can not load datas'
               setError( `${errMes}`)
               setIsPending(false)
+            }
           })
         }, 1000);
         return ()=> abortCont.abort();
